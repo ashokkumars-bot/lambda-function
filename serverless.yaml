@@ -1,0 +1,17 @@
+service: my-first-lambda-api
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1   # Mumbai
+  stage: dev
+  deploymentBucket:
+    name: my-serverless-deploy-bucket-ashok
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
